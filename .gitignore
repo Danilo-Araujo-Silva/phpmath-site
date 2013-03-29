@@ -1,2 +1,5 @@
 nbproject
 config/constant/database.php
+temp/log/*
+temp/template/*
+temp/test/*

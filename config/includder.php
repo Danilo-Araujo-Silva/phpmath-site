@@ -1,23 +1,23 @@
 <?php
 
-// Function to handler erros on shutdown.
+// Function to handler errors on shutdown.
 
 //register_shutdown_function('errorHandler');
 
 //function errorHandler() { 
-//    $erro = error_get_last();
-//    $tipo = $erro['type'];
-//    $mensagem = $erro['message'];
-//    if ($tipo = 64 && !empty($mensagem)) {
+//    $error = error_get_last();
+//    $type = $erro['type'];
+//    $message = $error['message'];
+//    if ($type = 64 && !empty($message)) {
 //        echo "
 //            <strong>
 //              <font color=\"red\">
-//              Último erro capturado:
+//              Last error captured:
 //              </font>
 //            </strong>
 //        ";
 //        echo "<pre>";
-//        print_r($erro);
+//        print_r($error);
 //        echo "</pre>";
 //    }
 //}
