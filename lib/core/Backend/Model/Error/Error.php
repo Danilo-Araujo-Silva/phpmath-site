@@ -1,21 +1,21 @@
 <?php
-namespace Backend\Model\Erro;
+namespace Backend\Model\Error;
 
 class Erro
 {
-    private $excecao;
+    private $exception;
     
-    public function __construct($excecao=null)
+    public function __construct($exception=null)
     {
         echo "
             <strong>
                 <font color=\"red\">
-                    Foi capturada a seguinte exceção:
+                    An exception was captured:
                 </font>
             </strong>
             <pre>
         ";
-        print_r($excecao);
+        print_r($exception);
         echo "
             </pre>
         ";

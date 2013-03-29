@@ -8,12 +8,12 @@ class Mathematica
 {
     private $catch;
     private $twig;
-    private $erro;
+    private $error;
     
-    public function getCatch($excecao)
+    public function getCatch($exception)
     {
         if (empty($this->catch)) {
-            $this->catch = new Erro($excecao);
+            $this->catch = new Error($exception);
         }
         
         return $this->catch;
@@ -31,40 +31,42 @@ class Mathematica
     public function configure()
     {
         if ($this->test()) {
-            echo "<br>O Mathemática está funcionando corretamente.<br>";
+            echo "<br>Mathematica is working perfectly.<br>";
             return true;
         } else {
             try {
-                $dados = array(
+                $data = array(
                     'MathematicaScriptPath' => MATHEMATICA_SCRIPT_PATH,
                 );
-                $conteudo = $this->getTwig()->render('mathematica/shell.html', $dados);
+                $content = $this->getTwig()->render('mathematica/shell.html', $data);
                 $script = fopen(MATHEMATICA_EXECUTAVEL, "w+");
-                fwrite($script, $conteudo);               
+                fwrite($script, $content);
+                
                 /*
-                 * Permite o usuário ler, escrever e executar.
-                 * Permite o grupo ler e executar.
-                 * Permite os outros lerem e executarem.
+                 * 0755 permission means:
+                 * PHP user can read, write and execute;
+                 * PHP group can read and execute;
+                 * others can read and execute.
                  */
                 chmod(MATHEMATICA_EXECUTAVEL, 0755);
                 fclose($script);
-                echo "<br>O arquivo executável do Mathematica foi criado com sucesso.<br>";
+                echo "<br>Mathematica executable was created sucessfully.<br>";
                 if ($this->test()) {
-                    echo "<br>Cálculos usando o Mathematica estão funcionando.<br>";
+                    echo "<br>Calculations with Mathematica are working.<br>";
                 } else {
                     echo "
                         <br>
-                        O cálculo de teste enviado ao Mathematica falhou.
+                        The test calculation send the Mathematica failed.
                         <br>
                     ";
-                     $this->getCatch($this->erro);
+                     $this->getCatch($this->error);
                         
                      return false;
                 }
                 
                 return true;
-            } catch (Exception $excecao) {
-                $this->getCatch($excecao);
+            } catch (Exception $exception) {
+                $this->getCatch($exception);
                 
                 return false;
             }
@@ -73,15 +75,15 @@ class Mathematica
         return true;
     }
     
-    public function run($comando)
+    public function run($call)
     {
         try {
-            $chamadaCompleta = MATHEMATICA_EXECUTAVEL." '$comando'";
-            $retorno = shell_exec($chamadaCompleta);
+            $completeCall = MATHEMATICA_EXECUTAVEL." '$call'";
+            $return = shell_exec($completeCall);
             
-            return $retorno;
-        } catch (Exception $excecao) {
-            $this->getCatch($excecao);
+            return $return;
+        } catch (Exception $exception) {
+            $this->getCatch($exception);
             
             return false;
         }
@@ -89,30 +91,29 @@ class Mathematica
     
     public function test()
     {
-        $resultado = $this->run("Zeta[2]");
-        $esperado =
+        $result = $this->run("Zeta[2]");
+        $correctAnswer =
 "Pi^2/6
 ";
-        $licensaNaoEncontrada = "Mathematica cannot find a valid password";
+        $notFoundLicense = "Mathematica cannot find a valid password";
         
-        if ($resultado == $esperado) {
+        if ($result === $correctAnswer) {
             return true;
-        } elseif (strpos($resultado, $licensaNaoEncontrada)) {
-            $this->erro = "
-                Não foi possível encontrar a licensa do Mathematica.
+        } elseif (strpos($result, $notFoundLicense)) {
+            $this->error = "
+                Was not possible the find the Mathematica license.
                 <br>
-                Copie a pasta da licensa do Mathematica para a home do 
-                usuário do PHP (por exemplo, /var/www/.Mathematica).
+                Copy the Mathematica license folder to the PHP user home
+                (for example, /var/www/.Mathematica).
                 <br>
-                A licensa do Mathematica normalmente pode ser encontrada
-                em uma pasta oculta na home do usuário licensiado 
-                (por exemplo, /home/user/.Mathematica)
+                The Mathematica license usually can be found on a hidden folder
+                at the licensed user home (for example, /home/user/.Mathematica).
                 <br>
-            ".$resultado;
+            ".$result;
             
             return false;
         } else {
-            $this->erro = $resultado;
+            $this->error = $result;
             return false;
         }
     }

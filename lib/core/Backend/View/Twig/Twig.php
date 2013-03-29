@@ -11,9 +11,10 @@ class Twig extends \Twig_Environment
         $loader = new \Twig_Loader_Filesystem($this->templateDir);
         
         /*
-         * Para permitir que este mesmo objeto já traga o método render (entre outros),
-         *  sem atravessadores, o construct da classe original precisou ser copiado abaixo.
-         *  Todavia ainda foram necessários colocar a '\' na instanciação de outros objetos necessários.
+         * To allow this object to bring the method render (among others), 
+         *  without middlemen, the construct of the original class had to be 
+         *  copied below. Was necessary put '\' in the instantiation of other 
+         *  objects needed.
          */
         
         if (null !== $loader) {
