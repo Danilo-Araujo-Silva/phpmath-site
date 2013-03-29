@@ -1,7 +1,7 @@
 <?php
 //  Vendor
-define("VENDOR", ROOT."vendor/");
+define("VENDOR", ROOT."lib/vendor/");
 
 //  Composer
-define("COMPOSER_PATH", ROOT."composer.phar");
-define("COMPOSER_JSON_PATH", ROOT."composer.json");
+define("COMPOSER_PATH", ROOT."lib/composer.phar");
+define("COMPOSER_JSON_PATH", ROOT."lib/composer.json");

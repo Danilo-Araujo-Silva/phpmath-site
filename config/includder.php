@@ -9,7 +9,7 @@ function errorHandler() {
         echo "
             <strong>
               <font color=\"red\">
-              Erro fatal capturado:
+              Último erro capturado:
               </font>
             </strong>
         ";
@@ -21,14 +21,16 @@ function errorHandler() {
 
 $includes = array(
     'constant/server.php',
+    'constant/core.php',
     'constant/database.php',
     'constant/template.php',
     'constant/vendor.php',
     'constant/mathematica.php',
+    'constant/log.php'
 );
 
 foreach ($includes as $include) {
     require_once "$include";
 }
 
-unset($include);
+unset($includes);

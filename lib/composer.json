@@ -3,6 +3,6 @@
         "twig/twig": "1.*"
     },
     "autoload" : {
-        "psr-0" : {"" : "core/backend"}
+        "psr-0" : {"Backend" : "core"}
     }
 }

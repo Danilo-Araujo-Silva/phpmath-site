@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => $vendorDir . '/twig/twig/lib/',
-    '' => $baseDir . '/vendor/Core',
+    'Backend' => $baseDir . '/core',
 );
