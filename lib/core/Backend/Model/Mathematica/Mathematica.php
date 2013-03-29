@@ -10,10 +10,10 @@ class Mathematica
     private $twig;
     private $erro;
     
-    public function getCatch()
+    public function getCatch($excecao)
     {
         if (empty($this->catch)) {
-            $this->catch = new Erro;
+            $this->catch = new Erro($excecao);
         }
         
         return $this->catch;
@@ -55,8 +55,8 @@ class Mathematica
                         <br>
                         O cálculo de teste enviado ao Mathematica falhou.
                         <br>
-                        Erro: {$this->erro}
                     ";
+                     $this->getCatch($this->erro);
                         
                      return false;
                 }
