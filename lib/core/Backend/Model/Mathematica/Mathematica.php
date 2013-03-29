@@ -36,7 +36,7 @@ class Mathematica
         } else {
             try {
                 $dados = array(
-                    'caminhoMathematicaScript' => MATHEMATICA_SCRIPT_PATH,
+                    'MathematicaScriptPath' => MATHEMATICA_SCRIPT_PATH,
                 );
                 $conteudo = $this->getTwig()->render('mathematica/shell.html', $dados);
                 $script = fopen(MATHEMATICA_EXECUTAVEL, "w+");
