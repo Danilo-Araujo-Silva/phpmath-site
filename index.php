@@ -6,3 +6,5 @@ use Backend\Model\Mathematica\Mathematica;
 
 $mathematica = new Mathematica;
 $mathematica->configure();
+
+echo "<pre>"; print_r($mathematica->run("Fibonacci[200]")); echo "</pre>";

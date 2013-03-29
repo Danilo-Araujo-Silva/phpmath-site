@@ -8,8 +8,9 @@ class PDO
     private $password;
     private $host;
     private $database;
-    private $options;
+    private $sgbd;
     private $dsn;
+    private $options;
     
     public function __construct()
     {
@@ -17,8 +18,9 @@ class PDO
         $this->password = DATABASE_PASSWORD;
         $this->host = DATABASE_HOST;
         $this->database = DATABASE_DATABASE;
+        $this->sgbd = DATABASE_SGBD;
+        $this->dsn = "{$this->sgbd}:host={$this->host};dbname={$this->database}";
         $this->options = null;
-        $this->dsn = 'mysql:host='.DATABASE_HOST.';dbname='.DATABASE_DATABASE;
     }
     
     public function getPDO()

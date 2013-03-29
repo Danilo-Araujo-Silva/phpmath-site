@@ -31,6 +31,7 @@ class Mathematica
     public function configure()
     {
         if ($this->test()) {
+            echo "<br>O Mathemática está funcionando corretamente.<br>";
             return true;
         } else {
             try {
@@ -89,9 +90,27 @@ class Mathematica
     public function test()
     {
         $resultado = $this->run("Zeta[2]");
+        $esperado =
+"Pi^2/6
+";
+        $licensaNaoEncontrada = "Mathematica cannot find a valid password";
         
-        if ($resultado == "Pi^2/6") {
+        if ($resultado == $esperado) {
             return true;
+        } elseif (strpos($resultado, $licensaNaoEncontrada)) {
+            $this->erro = "
+                Não foi possível encontrar a licensa do Mathematica.
+                <br>
+                Copie a pasta da licensa do Mathematica para a home do 
+                usuário do PHP (por exemplo, /var/www/.Mathematica).
+                <br>
+                A licensa do Mathematica normalmente pode ser encontrada
+                em uma pasta oculta na home do usuário licensiado 
+                (por exemplo, /home/user/.Mathematica)
+                <br>
+            ".$resultado;
+            
+            return false;
         } else {
             $this->erro = $resultado;
             return false;
