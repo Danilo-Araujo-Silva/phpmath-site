@@ -29,7 +29,10 @@ class Mathematica
     
     public function configure()
     {
-        if (!file_exists(MATHEMATICA_EXECUTAVEL)) {
+        if (
+            !file_exists(MATHEMATICA_EXECUTAVEL)
+            || filesize(MATHEMATICA_EXECUTAVEL) == 0
+        ) {
             try {
                 $dados = array(
                     'caminhoMathematicaScript' => MATHEMATICA_SCRIPT_PATH,
@@ -38,10 +41,17 @@ class Mathematica
                 $script = fopen(MATHEMATICA_EXECUTAVEL, "w+");
                 fwrite($script, $conteudo);
                 fclose($script);
+                echo "Arquivo executável do Mathematica criado com sucesso.";
+                
+                return true;
             } catch (Exception $excecao) {
                 $this->getCatch($excecao);
+                
+                return false;
             }
         }
+        
+        return true;
     }
     
     public function run($comando)
