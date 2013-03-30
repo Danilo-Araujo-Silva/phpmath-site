@@ -91,7 +91,7 @@ class Mathematica
     
     public function test()
     {
-        $call = "'Zeta[2]'";
+        $call = "Zeta[2]";
         $correctAnswer =
 "Pi^2/6
 ";

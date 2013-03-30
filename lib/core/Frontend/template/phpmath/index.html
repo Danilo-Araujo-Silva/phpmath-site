@@ -13,7 +13,9 @@
         </div>
         <div>
             <h3>Trying to configure PHPMath with Mathematica®:</h3>
-            <p>{{ configurationResult }}</p>
+            <p>
+                {{ configurationResult }}
+            </p>
         </div>
         <div>
             <h4>Instructions:</h4>
@@ -23,10 +25,13 @@
             </ul>
             <div id="commandDivSubmit">
                 <form>
-                    <textarea name="command" id="commandTextArea" class="commandTextArea" rows="5" cols="40"></textarea>
+                    <textarea name="command" id="commandTextArea" class="commandTextArea" rows="5" cols="50"></textarea>
                 </form>
                 <br>
-                {% include 'mathematica/result.html' %}
+{% include 'mathematica/result.html' %}
+            </div>
+            <div id="loading">
+                <img src="{{ image }}Mathematica/Loading.gif"/>
             </div>
         </div>
     </body>

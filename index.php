@@ -14,6 +14,7 @@ $data = array(
     "controller" => RELATIVE_CONTROLLER,
     "css" => RELATIVE_CSS,
     "javascript" => RELATIVE_JAVASCRIPT,
+    "image" => RELATIVE_IMAGE,
     "configurationResult" => $configure,
 );
 $content = $twig->render("phpmath/index.html", $data);
