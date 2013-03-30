@@ -1,6 +1,66 @@
 {
-    "hash": "f2af288523d814bd72c0362e51558bdc",
+    "hash": "109e31327e90a7a81a9f5b002e5af290",
     "packages": [
+        {
+            "name": "ajbdev/requirejs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ajbdev/requirejs.git",
+                "reference": "967de2da7b02af8c42c715a924d44b6e229661e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ajbdev/requirejs/zipball/967de2da7b02af8c42c715a924d44b6e229661e5",
+                "reference": "967de2da7b02af8c42c715a924d44b6e229661e5",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "description": "RequireJS is a JavaScript file and module loader.",
+            "homepage": "http://requirejs.org/",
+            "keywords": [
+                "javascript",
+                "require",
+                "requirejs"
+            ],
+            "time": "2012-07-08 22:00:08"
+        },
+        {
+            "name": "components/jquery",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "1.9.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/1.9.0",
+                "reference": "1.9.0",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "js": "jquery.js"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Resig",
+                    "email": "jeresig@gmail.com"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "time": "2013-01-15 19:21:07"
+        },
         {
             "name": "twig/twig",
             "version": "v1.12.2",
@@ -58,9 +118,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "ajbdev/requirejs": 20
+    },
     "platform": [
 
     ],

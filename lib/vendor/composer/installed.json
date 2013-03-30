@@ -49,5 +49,69 @@
         "keywords": [
             "templating"
         ]
+    },
+    {
+        "name": "components/jquery",
+        "version": "1.9.0",
+        "version_normalized": "1.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/jquery.git",
+            "reference": "1.9.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/jquery/zipball/1.9.0",
+            "reference": "1.9.0",
+            "shasum": ""
+        },
+        "time": "2013-01-15 19:21:07",
+        "type": "component",
+        "extra": {
+            "js": "jquery.js"
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "John Resig",
+                "email": "jeresig@gmail.com"
+            }
+        ],
+        "description": "jQuery JavaScript Library",
+        "homepage": "http://jquery.com"
+    },
+    {
+        "name": "ajbdev/requirejs",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ajbdev/requirejs.git",
+            "reference": "967de2da7b02af8c42c715a924d44b6e229661e5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ajbdev/requirejs/zipball/967de2da7b02af8c42c715a924d44b6e229661e5",
+            "reference": "967de2da7b02af8c42c715a924d44b6e229661e5",
+            "shasum": ""
+        },
+        "time": "2012-07-08 22:00:08",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD"
+        ],
+        "description": "RequireJS is a JavaScript file and module loader.",
+        "homepage": "http://requirejs.org/",
+        "keywords": [
+            "javascript",
+            "require",
+            "requirejs"
+        ]
     }
 ]

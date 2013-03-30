@@ -2,15 +2,18 @@
 require_once 'config/includder.php';
 require_once VENDOR.'autoload.php';
 
-use Backend\Model\Mathematica\Mathematica;
-use Backend\View\Twig\Twig;
+use Backend\Model\Mathematica\Mathematica as Model;
+use Backend\View\Twig\Twig as View;
+use Backend\Controller\Mathematica\Mathematica as Controller;
 
-$mathematica = new Mathematica;
+$mathematica = new Model;
 $configure = $mathematica->configure();
 
-$twig = new Twig;
+$twig = new View;
 $data = array(
     "controller" => RELATIVE_CONTROLLER,
+    "css" => RELATIVE_CSS,
+    "javascript" => RELATIVE_JAVASCRIPT,
     "configurationResult" => $configure,
 );
 $content = $twig->render("phpmath/index.html", $data);

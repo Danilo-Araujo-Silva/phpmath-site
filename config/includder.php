@@ -29,7 +29,8 @@ $includes = array(
     'constant/template.php',
     'constant/vendor.php',
     'constant/mathematica.php',
-    'constant/log.php'
+    'constant/log.php',
+    'constant/frontend.php',
 );
 
 foreach ($includes as $include) {

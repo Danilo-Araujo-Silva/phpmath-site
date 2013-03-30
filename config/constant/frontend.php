@@ -1,0 +1,3 @@
+<?php
+define("RELATIVE_CSS", RELATIVE_FRONTEND."CSS/");
+define("RELATIVE_JAVASCRIPT", RELATIVE_FRONTEND."Javascript/");

@@ -3,6 +3,8 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ css }}Index.css" />
+        <script type="text/javascript" language="javascript" data-main="{{ javascript }}/Core/Main" src="{{ javascript }}/Core/Require.js"></script>
     </head>
     <body>
         <div>
@@ -14,13 +16,17 @@
             <p>{{ configurationResult }}</p>
         </div>
         <div>
-            <p>Put your Mathematica® command below:</p>
-            <div>
-                <form action="{{ controller }}Mathematica/Mathematica.php" method="post">
+            <h4>Instructions:</h4>
+            <ul>
+                <li>Put your Mathematica® command at the text area below;</li>
+                <li>And press double click on it to process.</li>
+            </ul>
+            <div id="commandDivSubmit">
+                <form>
                     <textarea name="command" id="commandTextArea" class="commandTextArea" rows="5" cols="40"></textarea>
-                    <br>
-                    <input name="submit" id="commandSubmit" class="commandSubmit" type="submit" value="Send"/>
                 </form>
+                <br>
+                {% include 'mathematica/result.html' %}
             </div>
         </div>
     </body>

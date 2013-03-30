@@ -16,11 +16,4 @@ if ($mathematica->test()) {
     $result = "PHPMath isn't correctly configured yet.";
 }
 
-$return = array(
-    "result" => $result,
-);
-
-$twig = new Twig;
-$rendered = $twig->render("mathematica/result.html", $return);
-
-echo $rendered;
+echo $result;

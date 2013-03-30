@@ -1,8 +1,12 @@
 {
     "require": {
-        "twig/twig": "*"
+        "twig/twig": "*",
+        "components/jquery": "*",
+        "ajbdev/requirejs": "dev-master"
     },
     "autoload" : {
         "psr-0" : {"Backend" : "core"}
     }
 }
+
+    
