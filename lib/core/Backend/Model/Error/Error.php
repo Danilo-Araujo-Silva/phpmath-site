@@ -1,7 +1,7 @@
 <?php
 namespace Backend\Model\Error;
 
-class Erro
+class Error
 {
     private $exception;
     

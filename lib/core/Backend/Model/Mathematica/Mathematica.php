@@ -2,7 +2,7 @@
 namespace Backend\Model\Mathematica;
 
 use Backend\View\Twig\Twig;
-use Backend\Model\Erro\Erro;
+use Backend\Model\Error\Error;
 
 class Mathematica
 {

@@ -8,6 +8,7 @@ This project aims *nix systems, but with few adaptions could run on other system
 
 Install
 =======
+<!---
 - Database:
     - Creation:
         - Create a database (for example, phpmath);
@@ -18,6 +19,7 @@ Install
             `config/constant/database.php`;
         - Edit `config/constant/database.php` with the credentials of the
             created database.
+-->
 - Mathematica License:
     - Copy your Mathematica® license to the PHP home folder (for example, 
         `/var/www`).
