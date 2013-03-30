@@ -4,7 +4,7 @@ PHPMath is a project to run Mathematica® functions throught PHP.
 
 Requirements
 ============
-This project aims *nix systems, but with few adaptions can run on other OS too.
+This project aims *nix systems, but with few adaptions could run on other systems too.
 
 Install
 =======
