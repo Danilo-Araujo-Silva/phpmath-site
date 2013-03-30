@@ -1,15 +1,14 @@
 <?php
-require_once 'config/includder.php';
-require_once VENDOR.'autoload.php';
+require_once "config/bootstrap.php";
 
-use Backend\Model\Mathematica\Mathematica as Model;
-use Backend\View\Twig\Twig as View;
-use Backend\Controller\Mathematica\Mathematica as Controller;
+use Backend\Controller;
+use Backend\Model;
+use Backend\View;
 
-$mathematica = new Model;
+$mathematica = new Model\Mathematica\Mathematica;
 $configure = $mathematica->configure();
 
-$twig = new View;
+$twig = new View\Twig\Twig;
 $data = array(
     "controller" => RELATIVE_CONTROLLER,
     "css" => RELATIVE_CSS,
