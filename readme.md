@@ -34,3 +34,5 @@ Troubleshooting
 ===============
 - Be sure the folder `lib/core/Backend/Model/Mathematica/compiled` is writable
     by the PHP user.
+- Symlinks to the license hidden folder (.Mathematica) looks like don't work,
+    several approaches was tried.
