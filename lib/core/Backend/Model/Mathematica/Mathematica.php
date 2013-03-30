@@ -6,9 +6,10 @@ use Backend\Model\Erro\Erro;
 
 class Mathematica
 {
-    private $catch;
-    private $twig;
-    private $error;
+    private $catch = null;
+    private $twig = null;
+    private $error = null;
+    private $message = "";
     
     public function getCatch($exception)
     {
@@ -30,9 +31,8 @@ class Mathematica
     
     public function configure()
     {
-        if ($this->test()) {
-            echo "<br>Mathematica is working perfectly.<br>";
-            return true;
+        if ($this->message = $this->test()) {
+            return $this->message;
         } else {
             try {
                 $data = array(
@@ -50,29 +50,29 @@ class Mathematica
                  */
                 chmod(MATHEMATICA_EXECUTAVEL, 0755);
                 fclose($script);
-                echo "<br>Mathematica executable was created sucessfully.<br>";
+                $this->message .= "<br>Mathematica executable was created sucessfully.<br>";
                 if ($this->test()) {
-                    echo "<br>Calculations with Mathematica are working.<br>";
+                    $this->message .= "<br>Calculations with Mathematica are working.<br>";
                 } else {
-                    echo "
+                    $this->message .= "
                         <br>
                         The test calculation send the Mathematica failed.
                         <br>
                     ";
-                     $this->getCatch($this->error);
+                     $this->message .= $this->getCatch($this->error);
                         
-                     return false;
+                     return $this->message;
                 }
                 
-                return true;
+                return $this->message;
             } catch (Exception $exception) {
-                $this->getCatch($exception);
+                $this->message .= $this->getCatch($exception);
                 
-                return false;
+                return $this->message;
             }
         }
         
-        return true;
+        return $this->message;
     }
     
     public function run($call)
@@ -91,14 +91,17 @@ class Mathematica
     
     public function test()
     {
-        $result = $this->run("Zeta[2]");
+        $call = "'Zeta[2]'";
         $correctAnswer =
 "Pi^2/6
 ";
+        $result = $this->run($call);
         $notFoundLicense = "Mathematica cannot find a valid password";
         
         if ($result === $correctAnswer) {
-            return true;
+            $this->message .= "Correct: $call = $correctAnswer";
+            
+            return $this->message;
         } elseif (strpos($result, $notFoundLicense)) {
             $this->error = "
                 Was not possible the find the Mathematica license.

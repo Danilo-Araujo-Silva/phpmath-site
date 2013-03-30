@@ -1,6 +1,6 @@
 PHPMath
 =======
-PHPMath is a project to run Mathematica® function throught PHP.
+PHPMath is a project to run Mathematica® functions throught PHP.
 
 Install
 =======

@@ -5,12 +5,13 @@ require_once VENDOR.'autoload.php';
 use Backend\Model\Mathematica\Mathematica;
 use Backend\View\Twig\Twig;
 
+$mathematica = new Mathematica;
+$configure = $mathematica->configure();
+
 $twig = new Twig;
-$data = array();
+$data = array(
+    "controller" => RELATIVE_CONTROLLER,
+    "configurationResult" => $configure,
+);
 $content = $twig->render("phpmath/index.html", $data);
 echo $content;
-
-$mathematica = new Mathematica;
-$mathematica->configure();
-
-echo "Fibonacci[200] = <pre>"; print_r($mathematica->run("Fibonacci[200]")); echo "</pre>";
